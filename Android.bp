@@ -10,6 +10,9 @@ build = [
 cc_defaults {
     name: "libopenssl_defaults",
 
+    host_supported: true,
+    device_supported: false,
+
     cflags: [
         "-Wno-unused-parameter",
         "-Wno-missing-field-initializers",
@@ -42,7 +45,7 @@ cc_defaults {
     },
 }
 
-cc_library_host_static {
+cc_library {
     name: "libopenssl_ssl",
     defaults: [
         "libopenssl_defaults",
@@ -52,7 +55,7 @@ cc_library_host_static {
     static_libs: ["libopenssl_crypto"],
 }
 
-cc_library_host_static {
+cc_library {
     name: "libopenssl_crypto",
     defaults: [
         "libopenssl_defaults",
