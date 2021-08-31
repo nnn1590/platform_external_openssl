@@ -1,1 +1,1 @@
-include platform/external/python/cpython3:/OWNERS
+include platform/external/python/cpython3:master:/OWNERS
