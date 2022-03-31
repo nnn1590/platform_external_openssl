@@ -71,7 +71,13 @@ LOCAL_MODULE:= openssl
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := $(local_src_files)
 LOCAL_SHARED_LIBRARIES := $(local_shared_libraries)
-LOCAL_C_INCLUDES := $(local_c_includes)
+#LOCAL_C_INCLUDES := $(local_c_includes)
+LOCAL_C_INCLUDES += $(NDK_PROJECT_PATH) \
+                    $(NDK_PROJECT_PATH)/include \
+                    $(NDK_PROJECT_PATH)/include/openssl \
+                    $(NDK_PROJECT_PATH)/crypto \
+                    $(NDK_PROJECT_PATH)/crypto/asn1 \
+                    $(NDK_PROJECT_PATH)/crypto/evp
 LOCAL_CFLAGS := $(local_cflags)
 include $(LOCAL_PATH)/../android-config.mk
 include $(BUILD_EXECUTABLE)
@@ -83,5 +89,5 @@ LOCAL_SRC_FILES := $(local_src_files)
 LOCAL_SHARED_LIBRARIES := $(local_shared_libraries)
 LOCAL_C_INCLUDES := $(local_c_includes)
 LOCAL_CFLAGS := $(local_cflags)
-include $(LOCAL_PATH)/../android-config.mk
-include $(BUILD_HOST_EXECUTABLE)
+#include $(LOCAL_PATH)/../android-config.mk
+#include $(BUILD_HOST_EXECUTABLE)

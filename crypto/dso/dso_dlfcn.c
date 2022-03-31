@@ -441,7 +441,8 @@ static int dladdr(void *address, Dl_info *dl)
 
 static int dlfcn_pathbyaddr(void *addr,char *path,int sz)
 	{
-#ifdef HAVE_DLINFO
+//#ifdef HAVE_DLINFO
+#if 0
 	Dl_info dli;
 	int len;
 

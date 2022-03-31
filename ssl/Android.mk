@@ -54,7 +54,13 @@ LOCAL_NDK_VERSION := 5
 LOCAL_SDK_VERSION := 9
 endif
 LOCAL_SRC_FILES += $(local_src_files)
-LOCAL_C_INCLUDES += $(local_c_includes)
+#LOCAL_C_INCLUDES += $(local_c_includes)
+LOCAL_C_INCLUDES += $(NDK_PROJECT_PATH) \
+                    $(NDK_PROJECT_PATH)/include \
+                    $(NDK_PROJECT_PATH)/include/openssl \
+                    $(NDK_PROJECT_PATH)/crypto \
+                    $(NDK_PROJECT_PATH)/crypto/asn1 \
+                    $(NDK_PROJECT_PATH)/crypto/evp
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libssl_static
 include $(BUILD_STATIC_LIBRARY)
@@ -69,7 +75,13 @@ LOCAL_NDK_VERSION := 5
 LOCAL_SDK_VERSION := 9
 endif
 LOCAL_SRC_FILES += $(local_src_files)
-LOCAL_C_INCLUDES += $(local_c_includes)
+#LOCAL_C_INCLUDES += $(local_c_includes)
+LOCAL_C_INCLUDES += $(NDK_PROJECT_PATH) \
+                    $(NDK_PROJECT_PATH)/include \
+                    $(NDK_PROJECT_PATH)/include/openssl \
+                    $(NDK_PROJECT_PATH)/crypto \
+                    $(NDK_PROJECT_PATH)/crypto/asn1 \
+                    $(NDK_PROJECT_PATH)/crypto/evp
 LOCAL_SHARED_LIBRARIES += libcrypto
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libssl
@@ -84,14 +96,20 @@ LOCAL_C_INCLUDES += $(local_c_includes)
 LOCAL_SHARED_LIBRARIES += libcrypto
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libssl
-include $(BUILD_HOST_SHARED_LIBRARY)
+#include $(BUILD_HOST_SHARED_LIBRARY)
 
 #######################################
 # ssltest
 include $(CLEAR_VARS)
 include $(LOCAL_PATH)/../android-config.mk
 LOCAL_SRC_FILES:= ssltest.c
-LOCAL_C_INCLUDES += $(local_c_includes)
+#LOCAL_C_INCLUDES += $(local_c_includes)
+LOCAL_C_INCLUDES += $(NDK_PROJECT_PATH) \
+                    $(NDK_PROJECT_PATH)/include \
+                    $(NDK_PROJECT_PATH)/include/openssl \
+                    $(NDK_PROJECT_PATH)/crypto \
+                    $(NDK_PROJECT_PATH)/crypto/asn1 \
+                    $(NDK_PROJECT_PATH)/crypto/evp
 LOCAL_SHARED_LIBRARIES := libssl libcrypto
 LOCAL_MODULE:= ssltest
 LOCAL_MODULE_TAGS := optional
